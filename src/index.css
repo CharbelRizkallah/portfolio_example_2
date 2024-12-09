@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body {
+  margin: 0;
+  font-family: 'Beth Ellen', cursive;
+  /* font-family: 'Yellowtail', cursive; */
+  background-image: url('./imgs/background.jpg');
+}
+
+.paper{
+  background-image: url('./imgs/paper.jpg');
+}
+
+.torn-paper{
+  background-image: url('./imgs/torn_paper.png');
+}
+
+.notebook{
+  background-image: url('./imgs/notebook.png');
+}
+
+.notebook2{
+  background-image: url('./imgs/notebook.jpg');
+}
+
+.crumbledpaper{
+  background-image: url('./imgs/crumpled_paper.jpg');
 }

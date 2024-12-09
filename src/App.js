@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { client } from "./client.js";
+import About from './components/About.jsx';
+import Header from "./components/Header";
+
 
 function App() {
+  const [profile, setProfile] = useState(null);
+  const [work, setWork] = useState(null);
+
+
+  useEffect(() => {
+      client.fetch(`*[_type == "profile"]`).then((data) => setProfile(data));
+      client.fetch(`*[_type == "work"]`).then((data) => setWork(data));
+  },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-transparent m-0 w-full">
+      <Header profile={profile} work={work} />
+      <About profile={profile} />
     </div>
   );
 }
